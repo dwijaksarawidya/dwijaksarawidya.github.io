@@ -1,7 +1,7 @@
 <script lang="ts">
 	import BackgroundImage from '$lib/components/BackgroundImage.svelte';
 	import { fade } from 'svelte/transition';
-	let showCover = $state(false);
+	let showCover = $state(true);
 	let videoEl1: HTMLVideoElement | undefined = $state();
 	let videoEl2: HTMLVideoElement | undefined = $state();
 	function handleState1() {
