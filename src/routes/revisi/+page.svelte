@@ -344,7 +344,7 @@
 				<div class="mx-auto mt-8 bg-black/80 px-10 py-6 text-center">
 					<p>Ni Putu Widya Maheswari</p>
 					<span>MAYBANK</span>
-					<span></span>
+					<span>{noRekening}</span>
 				</div>
 			{/if}
 		</div>
