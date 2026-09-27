@@ -22,3 +22,7 @@
 	--font-heading: 'HeadingFont', cursive;
 	--font-body: 'BodyFont', serif;
 }
+html,
+body {
+	background-color: black;
+}

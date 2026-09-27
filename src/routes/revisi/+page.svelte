@@ -1,18 +1,39 @@
 <script lang="ts">
 	import BackgroundImage from '$lib/components/BackgroundImage.svelte';
 	import { fade } from 'svelte/transition';
+	import initialWishes from '$lib/data/wishes.json';
+
+	let wishes = $state(initialWishes);
+	function addWish(name: string, message: string) {
+		wishes.push({ name, message });
+	}
+
+	// rekening
+	let rekening = $state(false);
+	function handleRekening() {
+		rekening = rekening ? false : true;
+	}
+	let noRekening = '1777720230';
+	let copiedRekening = $state(false);
+	async function copyRekening() {
+		try {
+			await navigator.clipboard.writeText(noRekening);
+			copiedRekening = true;
+			setTimeout(() => (copiedRekening = false), 2000);
+		} catch (err) {
+			console.error('failed to copy:', err);
+		}
+	}
+	// rekening
+
+	// Cover dan Video
 	let showCover = $state(true);
 	let videoEl1: HTMLVideoElement | undefined = $state();
-	let videoEl2: HTMLVideoElement | undefined = $state();
 	function handleState1() {
 		showCover = false;
 		if (videoEl1) {
 			videoEl1.muted = false;
 			videoEl1.play();
-		}
-		if (videoEl2) {
-			videoEl2.muted = false;
-			videoEl2.play();
 		}
 	}
 	$effect(() => {
@@ -21,6 +42,50 @@
 			document.body.style.overflow = '';
 		};
 	});
+	// Cover dan Video
+
+	// countDown
+	let days = $state(0);
+	let hours = $state(0);
+	let minutes = $state(0);
+	let seconds = $state(0);
+
+	function getTimeRemaining() {
+		const target = new Date('2026-10-11T17:00:00').getTime();
+		const now = Date.now();
+		const diff = Math.max(target - now, 0);
+
+		return {
+			days: Math.floor(diff / (1000 * 60 * 60 * 24)),
+			hours: Math.floor((diff / (1000 * 60 * 60)) % 24),
+			minutes: Math.floor((diff / (1000 * 60)) % 60),
+			seconds: Math.floor((diff / 1000) % 60)
+		};
+	}
+	$effect(() => {
+		function update() {
+			const t = getTimeRemaining();
+			days = t.days;
+			hours = t.hours;
+			minutes = t.minutes;
+			seconds = t.seconds;
+		}
+
+		update();
+		const interval = setInterval(update, 1000);
+		return () => clearInterval(interval);
+	});
+	// countDown
+
+	//recipient
+	let recipient1 = $state('Bapak/Ibu/Saudara/i');
+	let recipient2 = $state<string | null>(null);
+	$effect(() => {
+		const params = new URLSearchParams(window.location.search);
+		recipient1 = params.get('to1') ?? params.get('to') ?? 'Bapak/Ibu/Saudara/i';
+		recipient2 = params.get('to2');
+	});
+	//recipient
 </script>
 
 {#if showCover}
@@ -31,16 +96,21 @@
 	>
 		<BackgroundImage src="https://res.cloudinary.com/dzzfgwj4/image/upload/v1790252474/1.webp" />
 		<div class="h-1/2"></div>
-		<div class="absolute top-6/10 w-full text-white">
+		<div class="absolute top-5/10 w-full text-white">
 			<div class="mx-auto flex flex-col gap-4 text-center">
 				<p>THE WEDDING OF</p>
-				<h2 class="text-xl">DWIJAKSARA & WIDYA</h2>
+				<h2 class="mb-10 font-heading text-2xl">Dwijaksara & Widya</h2>
 				<p>11 Oktober 2026</p>
 			</div>
 			<div class="mt-16 flex flex-col gap-2">
 				<h2>Kepada Yth.</h2>
-				<h2>Recipient</h2>
-				<h2>11 Oktober 2026</h2>
+				<div>
+					<h2>{recipient1}</h2>
+					{#if recipient2}
+						<h2>{recipient2}</h2>
+					{/if}
+				</div>
+				<h2 class="mt-2">11 Oktober 2026</h2>
 			</div>
 			<div class="mt-16 text-center">
 				<p>Kami memohon maaf</p>
@@ -52,12 +122,16 @@
 {/if}
 
 <div class="h-screen snap-y snap-mandatory overflow-y-scroll motion-safe:scroll-smooth">
-	<section class="relative h-screen snap-start snap-always bg-black">
+	<section class="relative h-screen snap-start snap-always overflow-hidden bg-black">
 		<BackgroundImage
-			src="https://res.cloudinary.com/dzzfgwj4/image/upload/v1790252479/countDown.webp"
-			class="blur-sm"
+			src="https://res.cloudinary.com/dzzfgwj4/image/upload/v1790252479/1.webp"
+			class="scale-150 blur-xs"
 		/>
-		<div class="absolute top-3/10 left-1/2 z-0 w-9/10 -translate-1/2 overflow-hidden rounded-3xl">
+
+		<div
+			class="absolute top-5/10 left-1/2 z-0 w-9/10 -translate-1/2 overflow-hidden
+		    shadow-2xl shadow-black/90"
+		>
 			<video
 				class="h-full w-full object-cover object-center"
 				src="https://res.cloudinary.com/dzzfgwj4/video/upload/v1789096155/intro.mp4"
@@ -65,24 +139,19 @@
 				muted
 				loop
 				playsinline
+				disablepictureinpicture
 			></video>
 		</div>
-		<div class="absolute top-7/10 left-1/2 z-0 w-9/10 -translate-1/2 overflow-hidden rounded-3xl">
-			<video
-				class="h-full w-full object-cover object-center"
-				src="https://res.cloudinary.com/dzzfgwj4/video/upload/v1789096155/intro.mp4"
-				bind:this={videoEl2}
-				muted
-				loop
-				playsinline
-			></video>
+		<div class="absolute top-4/6 w-full text-center text-sm text-white">
+			<p class="mt-4">I'll take you home.</p>
+			<p>and spend a lifetime makig it ours.</p>
 		</div>
 	</section>
 
 	<section class="relative h-screen snap-start snap-always text-sm">
 		<div
 			class="absolute top-2/9 left-1/2
-        z-10 w-6/10 -translate-1/2 px-2
+        z-10 w-[258px] -translate-1/2 px-2
     text-justify text-white"
 		>
 			<div class="text-justify leading-tight tracking-[3px] [text-align-last:justify]">
@@ -103,7 +172,7 @@
 
 	<section class="relative h-screen snap-start snap-always">
 		<BackgroundImage
-			src="https://res.cloudinary.com/dzzfgwj4/image/upload/v1790252474/brideMale.webp"
+			src="https://res.cloudinary.com/dzzfgwj4/image/upload/v1790528504/brideMale.webp"
 		/>
 		<div class=" absolute top-7/10 z-10 w-full -translate-y-1/2 text-sm text-white">
 			<div class="mx-auto flex flex-col text-center">
@@ -119,14 +188,14 @@
 
 	<section class="relative h-screen snap-start snap-always">
 		<BackgroundImage
-			src="https://res.cloudinary.com/dzzfgwj4/image/upload/v1790252474/brideFemale.webp"
+			src="https://res.cloudinary.com/dzzfgwj4/image/upload/v1790528513/brideFemale.webp"
 		/>
 		<div class=" absolute top-7/10 z-10 w-full -translate-y-1/2 text-sm text-white">
 			<div class="mx-auto flex flex-col text-center">
-				<h2 class="mb-8 font-heading text-xl">The Groom</h2>
+				<h2 class="mb-8 font-heading text-xl">The Bride</h2>
 				<p class="-mb-1 text-lg">Ni Putu Widya Maheswari</p>
 				<p class="mb-4 text-lg">Karantika Putri, S.Par., M.Tr.Par</p>
-				<h2 class="mb-8 font-heading text-xl">The Second Son of</h2>
+				<h2 class="mb-8 font-heading text-xl">The First Daughter of</h2>
 				<p class="tracking-wide">Dr. I ketut Kanten, A.Par., S.E., M.M., CHA., CHE.,</p>
 				<p>Ni Komang Kartika, S.E</p>
 			</div>
@@ -137,8 +206,8 @@
 		<BackgroundImage src="https://res.cloudinary.com/dzzfgwj4/image/upload/v1790252474/6.webp" />
 		<div
 			class="absolute top-4/20 left-1/2
-        z-10 w-4/5 -translate-1/2 px-2
-    text-justify text-white"
+        z-10 w-[344px] -translate-1/2
+      px-2 text-white"
 		>
 			<div
 				class="  text-justify text-sm
@@ -166,11 +235,11 @@
 
 	<section class="relative h-screen snap-start snap-always">
 		<BackgroundImage
-			src="https://res.cloudinary.com/dzzfgwj4/image/upload/v1790252474/locationDate.webp"
+			src="https://res.cloudinary.com/dzzfgwj4/image/upload/v1790252474/galeri2.webp"
 		/>
 		<div
-			class="absolute top-7/12 left-1/2
-        z-10 w-4/5 -translate-x-1/2 px-2
+			class="absolute top-1/7 left-1/2
+        z-10 w-4/5 -translate-x-1/2 -translate-y-10 px-2
     text-center text-white"
 		>
 			<h2 class="mb-14 font-heading text-3xl">Save Our Date</h2>
@@ -184,17 +253,17 @@
 				<p class="-mb-1">Kesiman, Kec Denpasar Timur,</p>
 				<p>Kota Denpasar, Bali</p>
 			</div>
-			<h2 class="font-heading text-xl">Google Maps</h2>
+			<h2 class="font-heading text-lg">Google Maps</h2>
 		</div>
 	</section>
 
 	<section class="relative h-screen snap-start snap-always font-heading text-2xl">
 		<BackgroundImage
-			src="https://res.cloudinary.com/dzzfgwj4/image/upload/v1790252474/countDown.webp"
+			src="https://res.cloudinary.com/dzzfgwj4/image/upload/v1790528503/countDown.webp"
 		/>
 		<div
-			class="absolute top-7/12 left-1/2
-        z-10 w-4/5 -translate-1/2 px-2
+			class="absolute top-1/7 left-1/2
+        z-10 w-4/5 -translate-x-1/2 -translate-y-15 px-2
     text-justify text-white"
 		>
 			<div class="mb-20 text-center">
@@ -203,39 +272,54 @@
 			</div>
 			<div class="relative mb-8 flex items-center justify-between">
 				<div class="flex flex-col gap-8 text-center">
-					<h3>1</h3>
+					<h3>{days}</h3>
 					<h2>Days</h2>
 				</div>
 				<div class="flex flex-col gap-8 text-center">
-					<h3>1</h3>
+					<h3>{minutes}</h3>
 					<h2>Minutes</h2>
 				</div>
 				<div
 					class=" absolute top-1/2 left-1/2 flex
       -translate-1/2 flex-col gap-8 text-center"
 				>
-					<h3>1</h3>
+					<h3>{hours}</h3>
 					<h2>Hours</h2>
 				</div>
 			</div>
 			<div class="flex flex-col gap-8 text-center">
-				<h3>1</h3>
+				<h3>{seconds}</h3>
 				<h2>Seconds</h2>
 			</div>
 		</div>
 	</section>
 
-	<section class="relative h-screen snap-start snap-always">
-		<BackgroundImage
-			src="https://res.cloudinary.com/dzzfgwj4/image/upload/v1790252475/attendanceConfirmation.webp"
-		/>
-		<div class=""></div>
-	</section>
-
-	<section class="relative h-screen snap-start snap-always">
+	<section class="relative flex h-screen snap-start snap-always flex-col justify-center">
 		<BackgroundImage
 			src="https://res.cloudinary.com/dzzfgwj4/image/upload/v1790252472/wishes.webp"
 		/>
+		<div class="absolute inset-0 bg-black/50"></div>
+		<div class="relative z-10 flex h-8/10 flex-col gap-15 text-center text-sm text-white">
+			<h2 class="font-heading text-xl">Wishes</h2>
+			<div class="mx-4 flex-1 overflow-y-auto">
+				{#each wishes as wish}
+					<div class="mb-8">
+						<p class="mb-2 font-black">{wish.name}</p>
+						<p class="text-xs">{wish.message}</p>
+					</div>
+				{/each}
+			</div>
+		</div>
+	</section>
+
+	<section class="relative flex h-screen snap-start snap-always flex-col justify-center">
+		<BackgroundImage
+			src="https://res.cloudinary.com/dzzfgwj4/image/upload/v1790252475/attendanceConfirmation.webp"
+		/>
+		<div class="relative z-10 h-9/10 text-center text-sm text-white">
+			<h1>Kindly Confirm Your</h1>
+			<h1>Presence And Share Your Blessings</h1>
+		</div>
 	</section>
 
 	<section class="relative h-screen snap-start snap-always text-sm text-white">
@@ -251,16 +335,32 @@
 				<p>Kehadiran dan doa restu Anda merupakan</p>
 				<p>hadiah terindah bagi kami. Namun, bagi</p>
 				<p>yang berkenan memberikan tanda kasih, dapat</p>
-				<p>disampaikan melalui rekening berikut</p>
+				<p>disampaikan melalui rekening berikut:</p>
 			</div>
+			<button onclick={handleRekening}>
+				<h2 class="mt-8 text-center font-heading text-2xl">Click Here</h2>
+			</button>
+			{#if rekening}
+				<div class="mx-auto mt-8 bg-black/80 px-10 py-6 text-center">
+					<p>Ni Putu Widya Maheswari</p>
+					<span>MAYBANK</span>
+					<span></span>
+				</div>
+			{/if}
 		</div>
 	</section>
 
+	<section class="relative h-screen snap-start snap-always text-sm text-white">
+		<BackgroundImage
+			src="https://res.cloudinary.com/dzzfgwj4/image/upload/v1790529013/carauselGaleri.webp"
+		/>
+	</section>
+
 	<section class="relative h-dvh w-full snap-start snap-always text-sm text-white">
-		<BackgroundImage src="https://res.cloudinary.com/dzzfgwj4/image/upload/v1790252474/last.webp" />
+		<BackgroundImage src="https://res.cloudinary.com/dzzfgwj4/image/upload/v1790529008/last.webp" />
 		<div class="h-1/2"></div>
 		<div class="relative z-10 h-1/2 text-white">
-			<div class="mx-auto flex flex-col text-center">
+			<div class="mx-auto flex flex-col gap-6 text-center text-xs">
 				<p>THE WEDDING OF</p>
 				<h2 class="mb-8 font-heading text-3xl">Dwijaksara & Widya</h2>
 				<p>11 Oktober 2026</p>
