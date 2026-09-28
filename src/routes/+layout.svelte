@@ -8,6 +8,7 @@
 
 <svelte:head>
 	<link rel="icon" href={logo} />
+
 	<meta
 		name="description"
 		content="Dengan hormat, kami mengundang Anda untuk menghadiri pernikahan kami."
@@ -21,6 +22,9 @@
 		content="Dengan hormat, kami mengundang Anda untuk menghadiri pernikahan kami."
 	/>
 	<meta property="og:image" content="https://dwijaksarawidya.github.io/images/galeriFace.jpeg" />
+	<meta property="og:image:width" content="1200" />
+	<meta property="og:image:height" content="630" />
+
 	<meta property="og:url" content="https://dwijaksarawidya.github.io/" />
 	<meta property="og:site_name" content="Undangan Pernikahan" />
 </svelte:head>

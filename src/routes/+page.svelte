@@ -592,7 +592,7 @@
 		<p>CREATED BY MANUSKRIP</p>
 		<a
 			class="inline-flex shadow-2xl transition-all duration-100 ease-out active:scale-98"
-			href="https://wa.me/6281234567890"
+			href="https://wa.me/6289678495387"
 			target="_blank"
 			rel="noopener noreferrer"
 		>
