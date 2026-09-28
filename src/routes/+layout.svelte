@@ -2,6 +2,7 @@
 	import './layout.css';
 	import favicon from '$lib/assets/favicon.svg';
 	import logo from '$lib/assets/logo2.jpeg';
+	import { json } from '@sveltejs/kit';
 
 	let { children } = $props();
 </script>
@@ -24,6 +25,7 @@
 	<meta property="og:image" content="https://dwijaksarawidya.github.io/images/galeriFace.jpeg" />
 	<meta property="og:image:width" content="1200" />
 	<meta property="og:image:height" content="630" />
+	<meta property="og:image:type" content="image/jpeg" />
 
 	<meta property="og:url" content="https://dwijaksarawidya.github.io/" />
 	<meta property="og:site_name" content="Undangan Pernikahan" />
