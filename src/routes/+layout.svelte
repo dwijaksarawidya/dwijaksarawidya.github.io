@@ -22,7 +22,7 @@
 		property="og:description"
 		content="Dengan hormat, kami mengundang Anda untuk menghadiri pernikahan kami."
 	/>
-	<meta property="og:image" content="https://dwijaksarawidya.github.io/images/galeriFace.jpeg" />
+	<meta property="og:image" content="https://dwijaksarawidya.github.io/galeriFace.jpeg" />
 	<meta property="og:image:width" content="1200" />
 	<meta property="og:image:height" content="630" />
 	<meta property="og:image:type" content="image/jpeg" />
