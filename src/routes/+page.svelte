@@ -319,7 +319,7 @@
 	</section>
 
 	<section class="relative h-full snap-start snap-always">
-		<BackgroundImage src="https://res.cloudinary.com/dzzfgwj4/image/upload/v1790252474/6.webp" />
+		<BackgroundImage src="https://res.cloudinary.com/dzzfgwj4/image/upload/v1789317218/3-3.jpg" />
 		<div
 			class="absolute top-4/20 left-1/2
         z-10 w-[344px] -translate-1/2
