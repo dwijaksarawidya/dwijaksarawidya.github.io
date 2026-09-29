@@ -237,7 +237,7 @@
     items-center overflow-hidden bg-black"
 	>
 		<BackgroundImage
-			src="https://res.cloudinary.com/dzzfgwj4/image/upload/v1790252479/1.webp"
+			src="https://res.cloudinary.com/dzzfgwj4/image/upload/v1790674190/neoCover.webp"
 			class="scale-150 blur-xs"
 		/>
 		<div class="flex-1"></div>
