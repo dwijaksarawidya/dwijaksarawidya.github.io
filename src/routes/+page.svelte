@@ -194,7 +194,9 @@
 		class="fixed top-0 z-50 h-dvh w-full max-w-[430px] overflow-hidden text-xs"
 		transition:fade={{ duration: 1500 }}
 	>
-		<BackgroundImage src="https://res.cloudinary.com/dzzfgwj4/image/upload/v1790252474/1.webp" />
+		<BackgroundImage
+			src="https://res.cloudinary.com/dzzfgwj4/image/upload/v1790674190/neoCover.webp"
+		/>
 		<div class="h-1/2"></div>
 		<div class="absolute top-5/10 w-full text-white">
 			<div class="mx-auto flex flex-col gap-1 text-center">
@@ -279,7 +281,9 @@
 			</div>
 			<p class="mt-4 text-center font-heading text-lg">Reg Weda X. 85.42</p>
 		</div>
-		<BackgroundImage src="https://res.cloudinary.com/dzzfgwj4/image/upload/v1790252474/2.webp" />
+		<BackgroundImage
+			src="https://res.cloudinary.com/dzzfgwj4/image/upload/v1790674191/neoPuisi.webp"
+		/>
 	</section>
 
 	<section class="relative h-full snap-start snap-always">
