@@ -208,7 +208,7 @@
 		<button
 			onclick={handleState1}
 			class=" absolute bottom-20 left-1/2 -translate-x-1/2 font-black
-      text-white shadow-2xl transition-all duration-100 ease-out active:scale-98"
+      text-white underline shadow-2xl transition-all duration-100 ease-out active:scale-98"
 		>
 			BUKA UNDANGAN
 		</button>
@@ -219,8 +219,10 @@
 	</div>
 {/if}
 
-<div class="h-screen snap-y snap-mandatory overflow-y-scroll motion-safe:scroll-smooth">
-	<section class="relative h-screen snap-start snap-always overflow-hidden bg-black">
+<div
+	class="fixed h-dvh max-w-[430px] snap-y snap-mandatory overflow-x-hidden overflow-y-scroll motion-safe:scroll-smooth"
+>
+	<section class="relative h-full snap-start snap-always overflow-hidden bg-black">
 		<BackgroundImage
 			src="https://res.cloudinary.com/dzzfgwj4/image/upload/v1790252479/1.webp"
 			class="scale-150 blur-xs"
@@ -241,12 +243,12 @@
 			></video>
 		</div>
 		<div class="absolute top-4/6 w-full text-center text-sm text-white">
-			<p class="mt-4">I'll take you home.</p>
+			<p class="mt-4">I'll take you home,</p>
 			<p>and spend a lifetime making it ours.</p>
 		</div>
 	</section>
 
-	<section class="relative h-screen snap-start snap-always text-sm">
+	<section class="relative h-full snap-start snap-always text-sm">
 		<div
 			class="absolute top-2/9 left-1/2
         z-10 w-[258px] -translate-1/2 px-2
@@ -268,7 +270,7 @@
 		<BackgroundImage src="https://res.cloudinary.com/dzzfgwj4/image/upload/v1790252474/2.webp" />
 	</section>
 
-	<section class="relative h-screen snap-start snap-always">
+	<section class="relative h-full snap-start snap-always">
 		<BackgroundImage
 			src="https://res.cloudinary.com/dzzfgwj4/image/upload/v1790528504/brideMale.webp"
 		/>
@@ -284,7 +286,7 @@
 		</div>
 	</section>
 
-	<section class="relative h-screen snap-start snap-always">
+	<section class="relative h-full snap-start snap-always">
 		<BackgroundImage
 			src="https://res.cloudinary.com/dzzfgwj4/image/upload/v1790528513/brideFemale.webp"
 		/>
@@ -300,7 +302,7 @@
 		</div>
 	</section>
 
-	<section class="relative h-screen snap-start snap-always">
+	<section class="relative h-full snap-start snap-always">
 		<BackgroundImage src="https://res.cloudinary.com/dzzfgwj4/image/upload/v1790252474/6.webp" />
 		<div
 			class="absolute top-4/20 left-1/2
@@ -331,7 +333,7 @@
 		</div>
 	</section>
 
-	<section class="relative h-screen snap-start snap-always">
+	<section class="relative h-full snap-start snap-always">
 		<BackgroundImage
 			src="https://res.cloudinary.com/dzzfgwj4/image/upload/v1790252474/galeri2.webp"
 		/>
@@ -357,12 +359,12 @@
 				target="_blank"
 				rel="noopener noreferrer"
 			>
-				<h2 class="font-heading text-lg">Google Maps</h2>
+				<h2 class="font-heading text-lg underline">Google Maps</h2>
 			</a>
 		</div>
 	</section>
 
-	<section class="relative h-screen snap-start snap-always font-heading text-2xl">
+	<section class="relative h-full snap-start snap-always font-heading text-2xl">
 		<BackgroundImage
 			src="https://res.cloudinary.com/dzzfgwj4/image/upload/v1790528503/countDown.webp"
 		/>
@@ -399,7 +401,7 @@
 		</div>
 	</section>
 
-	<section class="relative flex h-screen snap-start snap-always flex-col justify-center">
+	<section class="relative flex h-full snap-start snap-always flex-col justify-center">
 		<BackgroundImage
 			src="https://res.cloudinary.com/dzzfgwj4/image/upload/v1790252472/wishes.webp"
 		/>
@@ -417,7 +419,7 @@
 		</div>
 	</section>
 
-	<section class="relative flex h-screen snap-start snap-always flex-col justify-center">
+	<section class="relative flex h-full snap-start snap-always flex-col justify-center">
 		<BackgroundImage
 			src="https://res.cloudinary.com/dzzfgwj4/image/upload/v1790625545/formWishes.webp"
 		/>
@@ -475,7 +477,7 @@
 				</fieldset>
 				<button
 					class="mx-auto mt-8 w-1/3 font-heading text-2xl
-        shadow-2xl transition-all duration-100 ease-out active:scale-98"
+        underline shadow-2xl transition-all duration-100 ease-out active:scale-98"
 					type="submit"
 					disabled={sending}>{sending ? 'Sending...' : 'Submit'}</button
 				>
@@ -483,7 +485,7 @@
 		</div>
 	</section>
 
-	<section class="relative h-screen snap-start snap-always text-sm text-white">
+	<section class="relative h-full snap-start snap-always text-sm text-white">
 		<BackgroundImage
 			src="https://res.cloudinary.com/dzzfgwj4/image/upload/v1790252474/hadiahDigital.webp"
 		/>
@@ -502,7 +504,7 @@
 				onclick={handleRekening}
 				class="shadow-2xl transition-all duration-100 ease-out active:scale-98"
 			>
-				<h2 class="mt-8 text-center font-heading text-2xl">Click Here</h2>
+				<h2 class="mt-8 text-center font-heading text-2xl underline">Click Here</h2>
 			</button>
 			{#if rekening}
 				<div
@@ -517,7 +519,7 @@
 		</div>
 	</section>
 
-	<section class="relative h-screen snap-start snap-always text-sm text-white">
+	<section class="relative h-full snap-start snap-always text-sm text-white">
 		<div
 			bind:this={scroller}
 			onscroll={handleScroll}
@@ -565,11 +567,11 @@
 			{index + 1} / {photos.length}
 		</p>
 		<div class="absolute top-1/7 w-full -translate-y-1/2">
-			<h3 class="z-20 text-center font-heading text-2xl font-black">Our Prewedding</h3>
+			<h3 class="z-20 text-center font-heading text-2xl font-black">A Gallery of Us</h3>
 		</div>
 	</section>
 
-	<section class="relative h-dvh w-full snap-start snap-always text-sm text-white">
+	<section class="relative h-full w-full snap-start snap-always text-sm text-white">
 		<BackgroundImage src="https://res.cloudinary.com/dzzfgwj4/image/upload/v1790529008/last.webp" />
 		<div class="absolute inset-0 bg-black/50"></div>
 		<div class="h-1/2"></div>
