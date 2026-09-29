@@ -167,17 +167,24 @@
 		index = Math.round(el.scrollLeft / el.clientWidth);
 	}
 	const photos = [
-		'https://res.cloudinary.com/dzzfgwj4/image/upload/v1790624759/galeriFace.webp',
-		'https://res.cloudinary.com/dzzfgwj4/image/upload/v1790252474/hadiahDigital.webp',
-		'https://res.cloudinary.com/dzzfgwj4/image/upload/v1790603751/galeriContent2.webp',
-		'https://res.cloudinary.com/dzzfgwj4/image/upload/v1790603751/galeriContent3.webp',
-		'https://res.cloudinary.com/dzzfgwj4/image/upload/v1790603751/galeriContent4.webp',
-		'https://res.cloudinary.com/dzzfgwj4/image/upload/v1790603751/galeriContent5.webp',
-		'https://res.cloudinary.com/dzzfgwj4/image/upload/v1790603751/galeriContent6.webp',
-		'https://res.cloudinary.com/dzzfgwj4/image/upload/v1790603751/galeriContent7.webp',
-		'https://res.cloudinary.com/dzzfgwj4/image/upload/v1790603751/galeriContent8.webp',
-		'https://res.cloudinary.com/dzzfgwj4/image/upload/v1790603751/galeriContent9.webp',
-		'https://res.cloudinary.com/dzzfgwj4/image/upload/v1790603751/galeriContent10.webp'
+		'https://res.cloudinary.com/dzzfgwj4/image/upload/v1790671745/1.webp',
+		'https://res.cloudinary.com/dzzfgwj4/image/upload/v1790671745/2.webp',
+		'https://res.cloudinary.com/dzzfgwj4/image/upload/v1790671745/3.webp',
+		'https://res.cloudinary.com/dzzfgwj4/image/upload/v1790671745/4.webp',
+		'https://res.cloudinary.com/dzzfgwj4/image/upload/v1790671745/5.webp',
+		'https://res.cloudinary.com/dzzfgwj4/image/upload/v1790671745/6.webp',
+		'https://res.cloudinary.com/dzzfgwj4/image/upload/v1790671745/7.webp',
+		'https://res.cloudinary.com/dzzfgwj4/image/upload/v1790671745/8.webp',
+		'https://res.cloudinary.com/dzzfgwj4/image/upload/v1790671745/9.webp',
+		'https://res.cloudinary.com/dzzfgwj4/image/upload/v1790671745/10.webp',
+		'https://res.cloudinary.com/dzzfgwj4/image/upload/v1790671745/11.webp',
+		'https://res.cloudinary.com/dzzfgwj4/image/upload/v1790671745/12.webp',
+		'https://res.cloudinary.com/dzzfgwj4/image/upload/v1790671745/13.webp',
+		'https://res.cloudinary.com/dzzfgwj4/image/upload/v1790671745/14.webp',
+		'https://res.cloudinary.com/dzzfgwj4/image/upload/v1790671745/15.webp',
+		'https://res.cloudinary.com/dzzfgwj4/image/upload/v1790671745/16.webp',
+		'https://res.cloudinary.com/dzzfgwj4/image/upload/v1790671745/17.webp',
+		'https://res.cloudinary.com/dzzfgwj4/image/upload/v1790671745/18.webp'
 	];
 	//galeri
 </script>
@@ -220,16 +227,21 @@
 {/if}
 
 <div
-	class="fixed h-dvh max-w-[430px] snap-y snap-mandatory overflow-x-hidden overflow-y-scroll motion-safe:scroll-smooth"
+	class="fixed h-dvh max-w-[430px] snap-y snap-mandatory overflow-x-hidden overflow-y-scroll motion-safe:scroll-smooth
+  "
 >
-	<section class="relative h-full snap-start snap-always overflow-hidden bg-black">
+	<section
+		class="relative flex h-full snap-start snap-always flex-col
+    items-center overflow-hidden bg-black"
+	>
 		<BackgroundImage
 			src="https://res.cloudinary.com/dzzfgwj4/image/upload/v1790252479/1.webp"
 			class="scale-150 blur-xs"
 		/>
+		<div class="flex-1"></div>
 
 		<div
-			class="absolute top-5/10 left-1/2 z-0 w-9/10 -translate-1/2 overflow-hidden
+			class=" relative z-0 w-9/10 overflow-hidden
 		    shadow-2xl shadow-black/90"
 		>
 			<video
@@ -242,7 +254,7 @@
 				disablepictureinpicture
 			></video>
 		</div>
-		<div class="absolute top-4/6 w-full text-center text-sm text-white">
+		<div class="relative w-full flex-1 text-center text-sm text-white">
 			<p class="mt-4">I'll take you home,</p>
 			<p>and spend a lifetime making it ours.</p>
 		</div>
