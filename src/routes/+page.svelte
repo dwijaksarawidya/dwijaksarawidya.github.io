@@ -516,13 +516,7 @@
 			{/if}
 		</div>
 	</section>
-	<div
-		bind:this={scroller}
-		onscroll={handleScroll}
-		class="flex h-full w-full snap-x snap-mandatory [scrollbar-width:none] overflow-x-auto [&::-webkit-scrollbar]:hidden"
-	>
-		<!-- images -->
-	</div>
+
 	<section class="relative h-screen snap-start snap-always text-sm text-white">
 		<div
 			bind:this={scroller}
