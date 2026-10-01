@@ -112,7 +112,7 @@
 	let seconds = $state(0);
 
 	function getTimeRemaining() {
-		const target = new Date('2026-10-11T17:00:00').getTime();
+		const target = new Date('2026-10-19T09:00:00').getTime();
 		const now = Date.now();
 		const diff = Math.max(target - now, 0);
 
@@ -202,7 +202,7 @@
 			<div class="mx-auto flex flex-col gap-1 text-center">
 				<p>THE WEDDING OF</p>
 				<h2 class="mb-10 font-heading text-3xl">Dwijaksara & Widya</h2>
-				<p>11 Oktober 2026</p>
+				<p>09 Oktober 2026</p>
 			</div>
 			<div class="mt-16 flex flex-col gap-2 text-center">
 				<h2 class=" text-[9px] font-extralight">Kepada Yth.</h2>
@@ -359,18 +359,18 @@
     text-center text-white"
 		>
 			<h2 class="mb-14 font-heading text-3xl">Save Our Date</h2>
-			<p class="mb-2 text-lg">11 Oktober 2026</p>
+			<p class="mb-2 text-lg">09 Oktober 2026</p>
 			<div class="mb-6">
 				<p class="-mb-1 text-sm">Wedding Reception</p>
-				<p class="text-lg">Sunday, 17.00 - End</p>
+				<p class="text-lg">Friday, 19.00 - 20.00</p>
 			</div>
-			<p class="mb-2 text-lg">Bali Wangi Venue</p>
+			<p class="mb-2 text-lg">Jero Tegal Sanur</p>
 			<div class="mb-2 text-sm">
-				<p class="-mb-1">Kesiman, Kec Denpasar Timur,</p>
+				<p class="-mb-1">Jl. Sekuta Gg. VII No. 9B Sanur, Denpasar, Bali</p>
 				<p>Kota Denpasar, Bali</p>
 			</div>
 			<a
-				href="https://www.google.com/maps/place/Bali+Wangi+Venue/@-8.6674973,115.2480425,17z/data=!3m1!4b1!4m6!3m5!1s0x2dd2418b90af3d73:0x6f408413fae43756!8m2!3d-8.6674973!4d115.2506174!16s%2Fg%2F11fn60ysk1!5m1!1e1?entry=ttu&g_ep=EgoyMDI2MDkyMy4wIKXMDSoASAFQAw%3D%3D"
+				href="https://maps.app.goo.gl/voomPTjma4eGBA4E9?g_st=iw"
 				class="inline-flex shadow-2xl transition-all duration-100 ease-out active:scale-98"
 				target="_blank"
 				rel="noopener noreferrer"
@@ -595,7 +595,7 @@
 			<div class="mx-auto flex flex-col gap-6 text-center text-xs">
 				<p>THE WEDDING OF</p>
 				<h2 class="mb-8 font-heading text-3xl">Dwijaksara & Widya</h2>
-				<p>11 Oktober 2026</p>
+				<p>09 Oktober 2026</p>
 			</div>
 		</div>
 		<div class="absolute top-16/20 w-full translate-y-1/2 text-center text-lg">
