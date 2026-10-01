@@ -112,7 +112,7 @@
 	let seconds = $state(0);
 
 	function getTimeRemaining() {
-		const target = new Date('2026-10-19T09:00:00').getTime();
+		const target = new Date('2026-10-09T09:00:00').getTime();
 		const now = Date.now();
 		const diff = Math.max(target - now, 0);
 
