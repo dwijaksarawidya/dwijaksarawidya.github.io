@@ -361,8 +361,8 @@
 			<h2 class="mb-14 font-heading text-3xl">Save Our Date</h2>
 			<p class="mb-2 text-lg">09 Oktober 2026</p>
 			<div class="mb-6">
-				<p class="-mb-1 text-sm">Wedding Reception</p>
-				<p class="text-lg">Friday, 19.00 - 20.00</p>
+				<p class="-mb-1 text-sm">Pawiwahan</p>
+				<p class="text-lg">Friday, 09.00 - 20.00</p>
 			</div>
 			<p class="mb-2 text-lg">Jero Tegal Sanur</p>
 			<div class="mb-2 text-sm">
