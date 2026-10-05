@@ -112,7 +112,7 @@
 	let seconds = $state(0);
 
 	function getTimeRemaining() {
-		const target = new Date('2026-10-07T17:00:00').getTime();
+		const target = new Date('2026-10-07T12:30:00').getTime();
 		const now = Date.now();
 		const diff = Math.max(target - now, 0);
 
@@ -358,25 +358,50 @@
         z-20 w-4/5 -translate-x-1/2 -translate-y-10 px-2
     text-center text-white"
 		>
-			<h2 class="mb-14 font-heading text-3xl">Save Our Date</h2>
-			<p class="mb-2 text-lg">07 Oktober 2026</p>
-			<div class="mb-6">
-				<p class="-mb-1 text-sm">Mejauman</p>
-				<p class="text-lg">Wednesday, 17.00 - 20.00</p>
+			<div>
+				<h2 class="mb-14 font-heading text-3xl">Save Our Date</h2>
+				<p class="mb-2 text-lg">07 Oktober 2026</p>
+				<div class="mb-6">
+					<p class="-mb-1 text-sm">Mejauman</p>
+					<p class="text-lg">Wednesday, 12.30 - 16.00</p>
+				</div>
+				<p class="-mb-1 text-lg">Sanggah Gede Penyarikan</p>
+				<p class="mb-2 text-lg">Dalem Kedonganan</p>
+				<div class="mb-2 text-sm">
+					<p class="-mb-1">Jl. Tri Hyang Gg. V No. 7</p>
+					<p class="-mb-1">Kedonganan, Badung, Bali</p>
+					<p>Kota Denpasar, Bali</p>
+				</div>
+				<a
+					href="https://maps.google.com/?q=-8.767185,115.176117"
+					class="inline-flex shadow-2xl transition-all duration-100 ease-out active:scale-98"
+					target="_blank"
+					rel="noopener noreferrer"
+				>
+					<h2 class="font-heading text-lg underline">Google Maps</h2>
+				</a>
 			</div>
-			<p class="mb-2 text-lg">Jero Tegal Sanur</p>
-			<div class="mb-2 text-sm">
-				<p class="-mb-1">Jl. Sekuta Gg. VII No. 9B Sanur, Denpasar, Bali</p>
-				<p>Kota Denpasar, Bali</p>
+
+			<div class="mt-16">
+				<p class="mb-2 text-lg">07 Oktober 2026</p>
+				<div class="mb-6">
+					<p class="-mb-1 text-sm">Mejauman</p>
+					<p class="text-lg">Wednesday, 17.00 - 20.00</p>
+				</div>
+				<p class="mb-2 text-lg">Jero Tegal Sanur</p>
+				<div class="mb-2 text-sm">
+					<p class="-mb-1">Jl. Sekuta Gg. VII No. 9B Sanur, Denpasar, Bali</p>
+					<p>Kota Denpasar, Bali</p>
+				</div>
+				<a
+					href="https://maps.app.goo.gl/voomPTjma4eGBA4E9?g_st=iw"
+					class="inline-flex shadow-2xl transition-all duration-100 ease-out active:scale-98"
+					target="_blank"
+					rel="noopener noreferrer"
+				>
+					<h2 class="font-heading text-lg underline">Google Maps</h2>
+				</a>
 			</div>
-			<a
-				href="https://maps.app.goo.gl/voomPTjma4eGBA4E9?g_st=iw"
-				class="inline-flex shadow-2xl transition-all duration-100 ease-out active:scale-98"
-				target="_blank"
-				rel="noopener noreferrer"
-			>
-				<h2 class="font-heading text-lg underline">Google Maps</h2>
-			</a>
 		</div>
 	</section>
 
